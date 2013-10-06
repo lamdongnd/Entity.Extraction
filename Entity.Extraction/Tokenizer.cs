@@ -18,59 +18,6 @@ namespace Entity.Extraction
 
         public Token[] Tokenize(string input)
         {
-            //var tokens = new List<Token>();
-            //var lastCharType = CharacterEnum.Other;
-            //var buffer = new StringBuilder();
-            //for (var i = 0; i < input.Length; i++)
-            //{
-            //    var c = input[i];
-
-            //    var charType = CharacterEnum.Other;
-            //    if (c == ' ')
-            //    {
-            //        tokens.Add(new Token(i - buffer.Length, i, ref input));
-            //        buffer.Clear();
-            //        continue;
-            //    }
-            //    else if (System.Char.IsWhiteSpace(c))
-            //    {
-            //        charType = CharacterEnum.Whitespace;
-            //    }
-            //    else if (System.Char.IsLetter(c))
-            //    {
-            //        charType = CharacterEnum.Alphabetic;
-            //    }
-            //    else if (System.Char.IsDigit(c))
-            //    {
-            //        charType = CharacterEnum.Numeric;
-            //    }
-            //    else
-            //    {
-            //        charType = CharacterEnum.Other;
-            //    }
-
-            //    if (charType != lastCharType && i > 0)
-            //    {
-            //        if (buffer.Length > 0)
-            //        {
-            //            tokens.Add(new Token(i - buffer.Length, i, ref input));
-            //        }
-            //        buffer.Clear();
-            //    }
-
-            //    buffer.Append(c);
-
-            //    lastCharType = charType;
-            //}
-
-            //if (buffer.Length > 0)
-            //{
-            //    tokens.Add(new Token(input.Length - buffer.Length, input.Length, ref input));
-            //}
-
-            //return tokens.ToArray();
-            
-            
             CharacterEnum charType = CharacterEnum.Whitespace;
             CharacterEnum state = charType;
 

@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Annotator.cs" />
-    <Compile Include="Capture.cs" />
     <Compile Include="Context.cs" />
     <Compile Include="Sequence.cs" />
     <Compile Include="Tagger.cs" />

@@ -19,6 +19,7 @@ namespace Entity.Extraction
             var context = new Context(4);
             var trainer = new Trainer(tokenizer, annotator, context);
 
+            // Add some training text
             trainer.AddSample("1_amount (8_amount ounce) can_uom Pillsbury® refrigerated crescent dinner_ingredient rolls_ingredient\r\n");
             trainer.AddSample("1_amount /_amount 4_amount cup_uom pizza_ingredient sauce_ingredient\r\n");
             trainer.AddSample("3_amount /_amount 4_amount cup_uom shredded mozzarella_ingredient cheese_ingredient\r\n");
@@ -37,23 +38,21 @@ namespace Entity.Extraction
             trainer.AddSample("This article has assumed that regular_programming expressions_programming are matched against an entire input string.");
             trainer.AddSample("Modern regular expression implementations must deal with large non-ASCII_programming character sets such as Unicode. ");
 
+            // train the model
             var gisTrainer = new GisTrainer();
             gisTrainer.TrainModel(500, new TwoPassDataIndexer(trainer, 0));
             var model = new GisModel(gisTrainer);
             
+            // initialize the tagger
             var tagger = new Tagger(tokenizer, context, annotator, model);
 
             foreach (var file in Directory.GetFiles("examples", "*.txt"))
             {
                 var text = File.ReadAllText(file);
-                var probabilities = new double[0];
-                Console.WriteLine("trying " + Path.GetFileName(file));
-                var tokens = tagger.Tag(text, out probabilities);
 
-                Console.WriteLine(Path.GetFileName(file));
-                var v = probabilities.Average();
+                var probabilities = new double[0];
+                var tokens = tagger.Tag(text, out probabilities);
             }
-            Console.ReadLine();
         }
     }
 }
