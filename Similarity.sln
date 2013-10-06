@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Similarity", "Similarity\Similarity.csproj", "{3A123B41-1EC9-4BBA-BE7C-9F8B4DCCF9CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpEntropy", "SharpEntropy\SharpEntropy.csproj", "{BF0BF8B0-1894-4EDF-BF51-F370B063797E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entity.Extraction", "Entity.Extraction\Entity.Extraction.csproj", "{014B5226-9686-49B9-B7BC-ACD26D6039DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A123B41-1EC9-4BBA-BE7C-9F8B4DCCF9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A123B41-1EC9-4BBA-BE7C-9F8B4DCCF9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A123B41-1EC9-4BBA-BE7C-9F8B4DCCF9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A123B41-1EC9-4BBA-BE7C-9F8B4DCCF9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0BF8B0-1894-4EDF-BF51-F370B063797E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0BF8B0-1894-4EDF-BF51-F370B063797E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0BF8B0-1894-4EDF-BF51-F370B063797E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0BF8B0-1894-4EDF-BF51-F370B063797E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014B5226-9686-49B9-B7BC-ACD26D6039DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014B5226-9686-49B9-B7BC-ACD26D6039DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014B5226-9686-49B9-B7BC-ACD26D6039DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014B5226-9686-49B9-B7BC-ACD26D6039DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
