@@ -2,7 +2,7 @@ Entity.Extraction
 =================
 This work is loosely based on SharpNLP.
 
-Here's a quick code example of training and consuming a model:
+Here's a quick code example of training and consuming a model that could be used for parsing a recipe:
 
 	var tokenizer = new Tokenizer();
 	var annotator = Annotator.Default();
