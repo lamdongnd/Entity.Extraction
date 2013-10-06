@@ -33,7 +33,7 @@ namespace Entity.Extraction
                 outcomeIndexes.Add(outcomeName, this.model.GetOutcomeIndex(outcomeName));
             }
 
-            // generate a sequence of features based
+            // generate a sequence of features
             var tokens = this.annotator.Annotate(this.tokenizer.Tokenize(text));
 
             // holds the most likely sequences
@@ -45,7 +45,7 @@ namespace Entity.Extraction
             // iterate through each token while trying to find the best combination of labels
             for (var i = 0; i < tokens.Length; i++)
             {
-                // holds the n best sequences
+                // working set for the n best sequences
                 var nextSequences = new List<Sequence>(outcomeCount * 10);
 
                 // iterate through each possible outcome and evaluate based on the most likely sequences so far
@@ -75,7 +75,7 @@ namespace Entity.Extraction
                     }
                 }
 
-                // advance the n most likely sequences to be processed next round
+                // advance the n most likely sequences to be processed using the next token
                 possibleSequences = nextSequences.OrderByDescending(S => S.Score).Take(10).ToList();
             }
 
@@ -85,6 +85,7 @@ namespace Entity.Extraction
             probabilities = bestSequence.Scores.ToArray();
             for (var i = 0; i < tokens.Count(); i++)
             {
+                // outcomes from the sharpentropy model are stored as <start|continue>.<label>
                 tokens[i].Type = bestOutcomes[i].Split('.')[1];
             }
             return tokens;

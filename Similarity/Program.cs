@@ -19,7 +19,7 @@ namespace Entity.Extraction
             var context = new Context(4);
             var trainer = new Trainer(tokenizer, annotator, context);
 
-            // Add some training text
+            // Add some training text. Words that will be labeled are added using _<label name>.
             trainer.AddSample("1_amount (8_amount ounce) can_uom Pillsbury® refrigerated crescent dinner_ingredient rolls_ingredient\r\n");
             trainer.AddSample("1_amount /_amount 4_amount cup_uom pizza_ingredient sauce_ingredient\r\n");
             trainer.AddSample("3_amount /_amount 4_amount cup_uom shredded mozzarella_ingredient cheese_ingredient\r\n");
