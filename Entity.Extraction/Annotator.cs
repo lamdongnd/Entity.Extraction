@@ -167,6 +167,15 @@ namespace Entity.Extraction
                 }
             });
 
+            // new line
+            features.Add(S =>
+            {
+                if (string.IsNullOrEmpty(S.GetText().Trim()))
+                {
+                    S.Features.Add("new-line");
+                }
+            });
+
             return new Annotator(features);
         }
     }

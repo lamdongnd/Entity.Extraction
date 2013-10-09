@@ -27,8 +27,20 @@ namespace Entity.Extraction
             char previousChar = (char)(0);
             for (int characterIndex = 0; characterIndex < inputLength; characterIndex++)
             {
-                char c = input[characterIndex];
-                if (System.Char.IsWhiteSpace(c))
+                var c = input[characterIndex];
+                if (c == '\r' && input[characterIndex + 1] == '\n')
+                {
+                    if (characterIndex - start > 0 && start > -1)
+                    {
+                        tokens.Add(new Token(start, characterIndex, ref input));
+                    }
+                    tokens.Add(new Token(characterIndex, characterIndex + 2, ref input));
+                    start = characterIndex + 2;
+                    characterIndex += 1;
+                    continue;
+                }
+                else if (System.Char.IsWhiteSpace(c))
+                //if (char.IsWhiteSpace(c))
                 {
                     charType = CharacterEnum.Whitespace;
                 }
@@ -62,7 +74,7 @@ namespace Entity.Extraction
                 state = charType;
                 previousChar = c;
             }
-            if (charType != CharacterEnum.Whitespace)
+            if (charType != CharacterEnum.Whitespace && start < inputLength)
             {
                 tokens.Add(new Token(start, inputLength, ref input));
             }

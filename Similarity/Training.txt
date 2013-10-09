@@ -1,0 +1,50 @@
+﻿Kosher_ingredient salt_ingredient and freshly ground_ingredient pepper_ingredient
+1_amount 1_amount /_amount 2_amount pounds_uom boneless pork_ingredient loin_ingredient roast_ingredient , trimmed
+3_amount tablespoons_uom all-purpose flour_ingredient
+2_amount tablespoons_uom extra-virgin olive_ingredient oil_ingredient
+1_amount 1_amount /_amount 2_amount pounds_uom white_ingredient mushrooms_ingredient , quartered
+2_amount /_amount 3_amount cup_uom low-sodium chicken_ingredient broth_ingredient
+1_amount /_amount 2_amount cup_uom dry marsala_ingredient wine_ingredient
+1_amount /_amount 3_amount cup_uom heavy_ingredient cream_ingredient
+4_amount teaspoons_uom fresh lemon_ingredient juice_ingredient
+1_amount /_amount 2_amount cup_uom fresh parsley_ingredient leaves_ingredient
+1 pound_uom baby spinach_ingredient
+1_amount ( 8_uom ounce_uom ) can_uom Pillsbury® refrigerated crescent dinner_ingredient rolls_ingredient
+1_amount /_amount 4_amount cup_uom pizza_ingredient sauce_ingredient
+3_amount /_amount 4_amount cup_uom shredded mozzarella_ingredient cheese_ingredient
+1_amount /_amount 2_amount cup_uom sliced pepperoni_ingredient
+2_amount /_amount 3_amount cup_uom sliced pepperoni_ingredient
+7_amount /_amount 8_amount cup_uom sliced pepperoni_ingredient
+11_amount teaspoon_uom grated Parmesan_ingredient cheese_ingredient
+2_amount teaspoons_uom crushed garlic_ingredient
+1_amount /_amount 4_amount cup_uom olive_ingredient oil_ingredient
+4_amount skinless , boneless chicken_ingredient breast_ingredient halves
+2_amount eggs_ingredient
+3_amount eggs_ingredient
+1_amount /_amount 3_amount cup_uom butter_ingredient , melted
+1_amount cup_uom fresh orange_ingredient juice_ingredient
+1_amount /_amount 2_amount cup_uom 2_ingredient %_ingredient milk_ingredient
+2_amount ( 4_uom ounce_uom ) jars_uom diced pimento_ingredient peppers_ingredient , drained");
+1_amount /_amount 3_amount cup_uom butter_ingredient , melted
+2_amount tablespoons_uom light corn_ingredient syrup_ingredient
+1_amount /_amount 3_amount cup_uom chopped_ingredient pecans_ingredient
+3_amount tablespoons_uom white_ingredient sugar_ingredient
+1_amount teaspoon_uom ground_ingredient cinnamon_ingredient
+1_amount teaspoon_uom vanilla_ingredient extract_ingredient
+3_amount egg_ingredient whites_ingredient
+2_amount eggs_ingredient
+1_amount tablespoon_uom confectioners_ingredient ' sugar_ingredient for dusting
+1_amount 1_amount /_amount 2_amount pounds_uom boneless_ingredient pork_ingredient loin_ingredient roast_ingredient , trimmed
+4_amount tablespoons_uom extra_ingredient -_ingredient virgin_ingredient olive_ingredient oil_ingredient
+1_amount baby_ingredient eggplant_ingredient , halved
+Kosher_ingredient salt_ingredient
+1_amount tablespoon_uom pine_ingredient nuts_ingredient
+4_amount thin chicken_ingredient cutlets_ingredient (about 1 pound total)
+Freshly ground_ingredient pepper_ingredient
+All_ingredient -_ingredient purpose_ingredient flour_ingredient , for dredging
+3_amount cloves garlic_ingredient , sliced
+1_amount /_amount 4_amount cup_uom sun_ingredient -_ingredient dried_ingredient tomatoes_ingredient packed in oil, drained,rinsed and roughly chopped
+1_amount /_amount 4_amount cup_uom fresh basil_ingredient leaves_ingredient , torn
+1_amount /_amount 2_amount cup_uom low-sodium chicken_ingredient broth_ingredient
+1_amount /_amount 4_amount cup_uom ricotta_ingredient cheese_ingredient
+Rustic_ingredient bread_ingredient , for serving

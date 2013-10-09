@@ -11,7 +11,7 @@ namespace Entity.Extraction
     {
         private Tokenizer tokenizer;
         private Annotator annotator;
-        private List<TrainingEvent> samples = new List<TrainingEvent>();
+        public List<TrainingEvent> samples = new List<TrainingEvent>();
         private int currentIndex = 0;
         private Context context;
 
@@ -46,8 +46,13 @@ namespace Entity.Extraction
             for (var i = 0; i < tokens.Count; i++)
             {
                 var trainingOutcome = "";
+                if (string.IsNullOrEmpty(tokens[i].GetText().Trim()))
+                {
+                    trainingOutcome = "new";
+                    lastType = "line";
+                }
                 // boundary tokens have a type of other
-                if (string.IsNullOrEmpty(tokens[i].Type))
+                else if (string.IsNullOrEmpty(tokens[i].Type))
                 {
                     trainingOutcome = "other";
                     lastType = "other";
@@ -66,6 +71,12 @@ namespace Entity.Extraction
                 }
 
                 previousOutcomes.Add(trainingOutcome + "." + lastType);
+
+                if (lastType == "\r\n")
+                {
+
+                }
+
                 this.samples.Add(new TrainingEvent(trainingOutcome + "." + lastType, this.context.Generate(tokens, i, previousOutcomes)));
             }
         }

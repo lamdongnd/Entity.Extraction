@@ -16,43 +16,103 @@ namespace Entity.Extraction
         {
             var tokenizer = new Tokenizer();
             var annotator = Annotator.Default();
-            var context = new Context(4);
+            var context = new Context(2);
             var trainer = new Trainer(tokenizer, annotator, context);
 
             // Add some training text. Words that will be labeled are added using _<label name>.
-            trainer.AddSample("1_amount (8_amount ounce) can_uom Pillsbury® refrigerated crescent dinner_ingredient rolls_ingredient\r\n");
-            trainer.AddSample("1_amount /_amount 4_amount cup_uom pizza_ingredient sauce_ingredient\r\n");
-            trainer.AddSample("3_amount /_amount 4_amount cup_uom shredded mozzarella_ingredient cheese_ingredient\r\n");
-            trainer.AddSample("1_amount /_amount 2_amount cup_uom sliced pepperoni_ingredient\r\n");
-            trainer.AddSample("2_amount /_amount 3_amount cup_uom sliced pepperoni_ingredient\r\n");
-            trainer.AddSample("7_amount /_amount 8_amount cup_uom sliced pepperoni_ingredient\r\n");
-            trainer.AddSample("11_amount teaspoon_uom grated Parmesan_ingredient cheese_ingredient\r\n");
-            trainer.AddSample("2_amount teaspoons_uom crushed garlic_ingredient\r\n");
-            trainer.AddSample("1_amount /_amount 4_amount cup_uom olive_ingredient oil_ingredient\r\n");
-            trainer.AddSample("4_amount skinless_preparation , boneless_preparation chicken_ingredient breast_ingredient halves\r\n");
-            trainer.AddSample("2_amount eggs_ingredient\r\n");
-            trainer.AddSample("3_amount eggs_ingredient\r\n");
-            trainer.AddSample("1_amount /_amount 3_amount cup_uom butter_ingredient , melted\r\n");
-            trainer.AddSample("1_amount cup_uom fresh orange_ingredient juice_ingredient\r\n");
-            trainer.AddSample("1_amount /_amount 2_amount cup_uom 2_ingredient %_ingredient milk_ingredient\r\n");
-            trainer.AddSample("This article has assumed that regular_programming expressions_programming are matched against an entire input string.");
-            trainer.AddSample("Modern regular expression implementations must deal with large non-ASCII_programming character sets such as Unicode. ");
+            foreach (var sample in File.ReadAllLines("training.txt"))
+            {
+                trainer.AddSample("\r\n" + sample + "\r\n");
+            }
 
             // train the model
             var gisTrainer = new GisTrainer();
-            gisTrainer.TrainModel(500, new TwoPassDataIndexer(trainer, 0));
+            gisTrainer.TrainModel(1000, new TwoPassDataIndexer(trainer, 0));
             var model = new GisModel(gisTrainer);
             
             // initialize the tagger
             var tagger = new Tagger(tokenizer, context, annotator, model);
 
-            foreach (var file in Directory.GetFiles("examples", "*.txt"))
-            {
-                var text = File.ReadAllText(file);
+            var recipe = @"
+1 cup packed brown sugar
+ 1/3 cup butter, melted
+ 2 tablespoons light corn syrup
+ 1/3 cup chopped pecans
+ 12 (3/4 inch thick) slices French bread
+ 1 teaspoon grated orange zest
+ 1 cup fresh orange juice
+ 1/2 cup 2% milk
+ 3 tablespoons white sugar
+ 1 teaspoon ground cinnamon
+ 1 teaspoon vanilla extract
+ 3 egg whites
+ 2 eggs
+ 1 tablespoon confectioners' sugar for dusting
 
-                var probabilities = new double[0];
-                var tokens = tagger.Tag(text, out probabilities);
+1/3 cup olive oil
+ 3 cloves garlic, minced
+ 1/4 teaspoon crushed red pepper flakes, or to taste
+ 1 teaspoon dried oregano
+ 3 anchovy fillets, chopped, or more to taste
+ 2 (15 ounce) cans diced tomatoes, drained.
+ 1 (8 ounce) package spaghetti
+ 1/2 cup chopped pitted kalamata olives
+ 1/4 cup capers, chopped
+
+2 cups shredded sharp Cheddar cheese
+ 2 cups shredded Colby cheese
+ 2 (4 ounce) jars diced pimento peppers, drained
+ 1/2 (16 ounce) jar creamy salad dressing (e.g. Miracle Whip)
+ salt and pepper to taste
+
+1/4 cup butter, melted
+ 3 tablespoons Dijon mustard
+ 1 1/2 tablespoons honey
+ 1/4 cup dry bread crumbs
+ 1/4 cup finely chopped pecans
+ 4 teaspoons chopped fresh parsley
+ 4 (4 ounce) fillets salmon
+ salt and pepper to taste
+ 1 lemon, for garnish
+
+Kosher salt
+12 ounces linguine
+2 tablespoons extra-virgin olive oil
+4 cloves garlic, thinly sliced
+1/4 to 1/2 teaspoon red pepper flakes
+2 tablespoons capers, drained
+1/2 cup roughly chopped kalamata olives
+1 28-ounce can San Marzano plum tomatoes
+4 basil leaves, torn, plus more for garnish
+1 5-ounce can albacore tuna, packed in olive oil
+Freshly ground pepper
+";
+
+            var output = new StreamWriter("results.txt", false);
+            var probabilities = new double[0];
+            var tokens = tagger.Tag(recipe, out probabilities);
+            for (var i = 0; i < tokens.Length; i++)
+            {
+                var token = tokens[i];
+                output.WriteLine("{0,20}{1,20}{2,20}", probabilities[i].ToString("N2"), token.Type, token.GetText());
+                output.WriteLine(new string('-', 60));
             }
+            output.Flush();
+
+            //foreach (var file in Directory.GetFiles("examples", "*.txt"))
+            //{
+            //    var text = File.ReadAllText(file);
+
+            //    var probabilities = new double[0];
+            //    var tokens = tagger.Tag(text, out probabilities);
+
+            //    for (var i = 0; i < tokens.Length; i++)
+            //    {
+            //        var token = tokens[i];
+            //        Console.WriteLine("{0,20}{1,20}{2,20}", token.Type, probabilities[i].ToString("N2"), token.GetText());
+            //        Console.WriteLine(new string('-', 60));
+            //    }
+            //}
         }
     }
 }

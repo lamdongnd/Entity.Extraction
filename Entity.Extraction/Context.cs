@@ -26,7 +26,10 @@ namespace Entity.Extraction
                 {
                     var token = tokens.ElementAt(currentIndex);
                     features.AddRange(token.Features.Select(S => i + "-" + S).ToArray());
-                    features.Add(i + "-" + token.GetText());
+                    if (string.IsNullOrEmpty(token.GetText().Trim()) == false)
+                    {
+                        features.Add(i + "-" + token.GetText());
+                    }
                     features.Add(i + "-" + previousOutcomes.ElementAt(currentIndex));
                 }
             }

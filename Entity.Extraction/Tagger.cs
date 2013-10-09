@@ -67,7 +67,7 @@ namespace Entity.Extraction
 
                         // remove the previously added outcome because it will be added below with the score
                         possibleOutcomes.RemoveAt(possibleOutcomes.Count - 1);
-                        var outcomeIndex = outcomeIndexes[possibleOutcome]; 
+                        var outcomeIndex = outcomeIndexes[possibleOutcome];
 
                         // add the possible outcome and keep track of the score
                         nextSequence.AddOutcome(possibleOutcome, outcomes[outcomeIndex]);
@@ -76,7 +76,7 @@ namespace Entity.Extraction
                 }
 
                 // advance the n most likely sequences to be processed using the next token
-                possibleSequences = nextSequences.OrderByDescending(S => S.Score).Take(10).ToList();
+                possibleSequences = nextSequences.OrderByDescending(S => S.Score).Take(30).ToList();
             }
 
             // find the highest scoring sequence and assign the labels
